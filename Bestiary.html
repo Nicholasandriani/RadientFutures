@@ -1,0 +1,314 @@
+<!-- =========================
+Bestiary: Column Card Layout
+Accessible, low cognitive load
+========================== -->
+
+<!— Skip link for screen readers/keyboard users -->
+<a href="#main" class="skip-link">Skip to content</a>
+
+<style>
+  :root{
+    --bg: #f7f3e8;            /* parchment */
+    --ink: #1c1c1c;           /* high-contrast text */
+    --muted: #5e5a55;         /* secondary text */
+    --bandA:#e9e0c9; --bandB:#e3ecef; --bandC:#eae7f7;
+    --bandD:#e9f5ec; --bandE:#fbeee5; --bandF:#f0f4ff;
+    --card: #ffffff;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.06);
+    --gap: 1.2rem;
+    --font: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  }
+
+  html{box-sizing:border-box}
+  *,*:before,*:after{box-sizing:inherit}
+
+  body{
+    margin:0; background:var(--bg); color:var(--ink); font: 17px/1.6 var(--font);
+  }
+  .skip-link{
+    position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+  }
+  .skip-link:focus{
+    position:fixed; left:1rem; top:1rem; width:auto; height:auto; background:#fff; padding:.5rem .75rem; border-radius:.5rem; box-shadow:var(--shadow); z-index:9999;
+  }
+
+  header.site{
+    padding:1.25rem clamp(1rem, 3vw, 2rem); border-bottom:1px solid #e2ddd3; background:#fff;
+  }
+  header.site h1{margin:.2rem 0 0; font-size:clamp(1.4rem, 2.4vw, 2rem)}
+  header.site p{margin:.2rem 0 0; color:var(--muted)}
+
+  /* Grid wrapper */
+  main#main{
+    padding:clamp(1rem, 2.5vw, 2rem);
+    display:grid; gap:2rem;
+  }
+
+  /* Section bands (common region + similarity) */
+  .band{ padding:1rem; border-radius: var(--radius); }
+  .band[data-band="A"]{ background:var(--bandA) }
+  .band[data-band="B"]{ background:var(--bandB) }
+  .band[data-band="C"]{ background:var(--bandC) }
+  .band[data-band="D"]{ background:var(--bandD) }
+  .band[data-band="E"]{ background:var(--bandE) }
+  .band[data-band="F"]{ background:var(--bandF) }
+
+  .band h2{ margin:.25rem 0 1rem; font-size:clamp(1.1rem, 2vw, 1.4rem) }
+
+  /* Card grid inside each band */
+  .cards{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--gap);
+  }
+
+  .card{
+    background:var(--card); border-radius:var(--radius); padding:1rem;
+    box-shadow: var(--shadow); outline: 2px solid transparent;
+  }
+  .card:focus-within{ outline-color:#9aa6b2 }
+
+  .kicker{ font-size:.85rem; letter-spacing:.03em; color:#5a5550; text-transform:uppercase; margin:0 0 .25rem }
+  .card h3{ margin:.25rem 0 .5rem; font-size:1.1rem }
+  .icon{ font-size:1.1rem; margin-right:.25rem }
+  .meta{ color:var(--muted); font-size:.9rem; margin:.4rem 0 .5rem }
+  .bullets{ margin:.5rem 0 0; padding-left:1.1rem }
+  .bullets li{ margin:.25rem 0 }
+
+  /* Quiet/low-stimulus option: no motion */
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
+
+  /* Canvas-friendly links/buttons */
+  .tiny{ font-size:.9rem; color:#0b5cab; text-decoration:underline }
+</style>
+
+<header class="site" role="banner">
+  <h1>Bestiary: Book of Beasts — Structured Overview</h1>
+  <p>Segmented into uniform cards for lower cognitive load and predictable reading rhythm.</p>
+</header>
+
+<main id="main" role="main" aria-label="Bestiary segmented content">
+
+  <!-- ================= A. Orientation ================= -->
+  <section class="band" data-band="A" aria-labelledby="bandA">
+    <h2 id="bandA">A — Orientation</h2>
+    <div class="cards">
+
+      <article class="card" aria-labelledby="a1">
+        <p class="kicker">📖 Overview</p>
+        <h3 id="a1">What is a Bestiary?</h3>
+        <p class="meta">Image suggestion: Griffin detail, <em>Book of Flowers</em>.</p>
+        <ul class="bullets">
+          <li>Medieval “book of beasts” (real + mythical), c. 500–1500.</li>
+          <li>Pairs animal descriptions with Christian meanings; devotional + entertaining.</li>
+          <li>Stories spread into tapestries, sculpture, and later culture.</li>
+        </ul>
+      </article>
+
+      <article class="card" aria-labelledby="a2">
+        <p class="kicker">🏛️ Exhibition</p>
+        <h3 id="a2">The First Major Showcase</h3>
+        <ul class="bullets">
+          <li><em>Book of Beasts</em> assembled 100+ works, ~⅓ of surviving illuminated bestiaries.</li>
+          <li>Frames key stories, typical contents, and the tradition’s influence.</li>
+        </ul>
+      </article>
+
+      <article class="card" aria-labelledby="a3">
+        <p class="kicker">🧭 How Entries Work</p>
+        <h3 id="a3">Text + Image + Order</h3>
+        <ul class="bullets">
+          <li>Each entry: short text + iconic image.</li>
+          <li>Common order: land → birds → serpents → sea.</li>
+          <li>From church instruction to elite devotion and entertainment.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= B. Symbol stories ================= -->
+  <section class="band" data-band="B" aria-labelledby="bandB">
+    <h2 id="bandB">B — Symbol Stories</h2>
+    <div class="cards">
+
+      <article class="card" aria-labelledby="b1">
+        <p class="kicker">🦄 Unicorn</p>
+        <h3 id="b1">Tamed by a Maiden</h3>
+        <p class="meta">Image: Ashmole Bestiary unicorn.</p>
+        <ul class="bullets">
+          <li>Lore: wild, rests in a maiden’s lap; hunters seize it.</li>
+          <li>Meaning: Incarnation—unicorn = Christ; maiden = Mary; wounding = Passion.</li>
+          <li>Later becomes a courtly-love emblem beyond manuscripts.</li>
+        </ul>
+      </article>
+
+      <article class="card" aria-labelledby="b2">
+        <p class="kicker">🪶 Object Story</p>
+        <h3 id="b2">Parade Saddle</h3>
+        <ul class="bullets">
+          <li>Carved bone saddle shows unicorn + maiden—story leaves the page.</li>
+        </ul>
+      </article>
+
+      <article class="card" aria-labelledby="b3">
+        <p class="kicker">🦁 Lion</p>
+        <h3 id="b3">King of Beasts</h3>
+        <ul class="bullets">
+          <li>Often first entry; cubs “revived” on day three → Resurrection type.</li>
+          <li>Pages stack scenes (adult, cubs, revival) for quick reading.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= C. The four orders ================= -->
+  <section class="band" data-band="C" aria-labelledby="bandC">
+    <h2 id="bandC">C — The Four Orders of Animals</h2>
+    <div class="cards">
+
+      <article class="card" aria-labelledby="c1">
+        <p class="kicker">🐾 Land</p>
+        <h3 id="c1">Parandrus</h3>
+        <ul class="bullets">
+          <li>Moves horns independently to face two threats.</li>
+          <li>Artist shows a horn “cutting” the text—a playful text–image interaction.</li>
+        </ul>
+      </article>
+
+      <article class="card" aria-labelledby="c2">
+        <p class="kicker">🕊️ Birds</p>
+        <h3 id="c2">Eagle</h3>
+        <ul class="bullets">
+          <li>Chief of birds; sight renewed by gazing at the sun → spiritual renewal.</li>
+        </ul>
+      </article>
+
+      <article class="card" aria-labelledby="c3">
+        <p class="kicker">🐉 Serpents</p>
+        <h3 id="c3">Dragon</h3>
+        <ul class="bullets">
+          <li>King of serpents; diagonal body dominates page.</li>
+          <li>Tail interrupts text to underscore power.</li>
+        </ul>
+      </article>
+
+      <article class="card" aria-labelledby="c4">
+        <p class="kicker">🌊 Sea</p>
+        <h3 id="c4">Whale as Island</h3>
+        <ul class="bullets">
+          <li>Sailors camp on its back; fire triggers a dive—warning against deception.</li>
+          <li>Art captures the instant of realization (shock moment).</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= D. Beyond the book ================= -->
+  <section class="band" data-band="D" aria-labelledby="bandD">
+    <h2 id="bandD">D — Beyond the Book</h2>
+    <div class="cards">
+
+      <article class="card" aria-labelledby="d1">
+        <p class="kicker">🏺 Object</p>
+        <h3 id="d1">Elephant Candlestick</h3>
+        <ul class="bullets">
+          <li>Elephant = strength; howdah = military might.</li>
+          <li>Design integrates candle spike and wax-catching rim.</li>
+        </ul>
+      </article>
+
+      <article class="card" aria-labelledby="d2">
+        <p class="kicker">🦊 Literature</p>
+        <h3 id="d2">Reynard the Fox</h3>
+        <ul class="bullets">
+          <li>Trickster feigns death; becomes a popular literary cycle.</li>
+          <li>French word for fox (<em>renard</em>) stems from these tales.</li>
+        </ul>
+      </article>
+
+      <article class="card" aria-labelledby="d3">
+        <p class="kicker">🧵 Tapestry</p>
+        <h3 id="d3">Millefleurs Trinity</h3>
+        <ul class="bullets">
+          <li>Stag, unicorn, lion aligned vertically—read as the Trinity.</li>
+        </ul>
+      </article>
+
+      <article class="card" aria-labelledby="d4">
+        <p class="kicker">📜 Cross-Tradition</p>
+        <h3 id="d4">Rothschild Pentateuch Lion</h3>
+        <ul class="bullets">
+          <li>Lion reviving cub paired with Genesis/Abraham &amp; Isaac.</li>
+          <li>Shows allegory across religions and contexts.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= E. Knowledge & maps ================= -->
+  <section class="band" data-band="E" aria-labelledby="bandE">
+    <h2 id="bandE">E — Knowledge &amp; Maps</h2>
+    <div class="cards">
+
+      <article class="card" aria-labelledby="e1">
+        <p class="kicker">📚 Encyclopedias</p>
+        <h3 id="e1">Bestiary → Natural History</h3>
+        <ul class="bullets">
+          <li>1100–1300 encyclopedias absorb animal lore, often minus overt symbolism.</li>
+        </ul>
+      </article>
+
+      <article class="card" aria-labelledby="e2">
+        <p class="kicker">🗺️ Cartography</p>
+        <h3 id="e2">Creatures on Maps</h3>
+        <ul class="bullets">
+          <li>Animals mark regions as exotic/dangerous as travel expands.</li>
+        </ul>
+      </article>
+
+      <article class="card" aria-labelledby="e3">
+        <p class="kicker">🦅🦁 Hybrid</p>
+        <h3 id="e3">The Griffin &amp; “Relics”</h3>
+        <ul class="bullets">
+          <li>Featured in early encyclopedias; said to carry off adults.</li>
+          <li>“Griffin claws” were often ibex horns; “eggs” were ostrich eggs.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= F. Modern echoes ================= -->
+  <section class="band" data-band="F" aria-labelledby="bandF">
+    <h2 id="bandF">F — Modern Echoes</h2>
+    <div class="cards">
+
+      <article class="card" aria-labelledby="f1">
+        <p class="kicker">🎨 Revival</p>
+        <h3 id="f1">Apollinaire &amp; Dufy</h3>
+        <ul class="bullets">
+          <li>20th-century bestiaries pair text + bold woodcuts, echoing block books.</li>
+        </ul>
+      </article>
+
+      <article class="card" aria-labelledby="f2">
+        <p class="kicker">🧬 Contemporary</p>
+        <h3 id="f2">Kate Clark Hybrids</h3>
+        <ul class="bullets">
+          <li>Human–animal sculptures probe identity, instinct, and ethics.</li>
+          <li>Modern echo of moral inquiry once carried by medieval beasts.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <p class="tiny" aria-label="footnote">Tip: On mobile, these bands stack in the same order to preserve continuity.</p>
+</main>
